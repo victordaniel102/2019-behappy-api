@@ -1,6 +1,8 @@
+const table_name = "tasks";
+
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('tasks', (table) => {
-    table.increments('id').primary();
+  return knex.schema.createTable(table_name, (table) => {
+    table.increments('oid').primary();
     table.string('title').notNullable();
     table.string('description').nullable();
     table.timestamps();
@@ -8,5 +10,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('tasks');
+  return knex.schema.dropTable(table_name);
 };
