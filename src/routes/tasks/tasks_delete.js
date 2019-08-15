@@ -31,7 +31,7 @@ export default {
   path: "/tasks/{task_id}",
   handler: (request, reply) =>
     knex(table_name)
-      .where("oid", request.params.task_id)
+      .where("id", request.params.task_id)
       .del()
       .then(results =>
         reply

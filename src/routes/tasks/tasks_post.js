@@ -8,27 +8,27 @@ export default {
   handler: (request, reply) =>
     knex("tasks")
       .insert(request.payload)
-      .then(oid =>
+      .then(id =>
         reply
           .response({
             status: 201,
             task: {
-              oid: oid[0],
+              id: id[0],
               title: request.payload.title,
               description: request.payload.description
             },
             links: [
               {
-                rel: `/linkrels/tasks/${oid[0]}/show`,
-                uri: `/tasks/${oid[0]}`
+                rel: `/linkrels/tasks/${id[0]}/show`,
+                uri: `/tasks/${id[0]}`
               },
               {
-                rel: `/linkrels/tasks/${oid[0]}/delete`,
-                uri: `/tasks/${oid[0]}`
+                rel: `/linkrels/tasks/${id[0]}/delete`,
+                uri: `/tasks/${id[0]}`
               },
               {
-                rel: `/linkrels/tasks/${oid[0]}/done`,
-                uri: `/tasks/${oid[0]}/done`
+                rel: `/linkrels/tasks/${id[0]}/done`,
+                uri: `/tasks/${id[0]}/done`
               }
             ]
           })

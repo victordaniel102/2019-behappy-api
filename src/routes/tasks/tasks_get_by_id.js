@@ -4,7 +4,7 @@ const response_builder = data => {
   let response = {
     status: data.length >= 1 ? "200" : "401",
     data: {
-      oid: data[0].oid ? data[0].oid : 0,
+      id: data[0].id ? data[0].id : 0,
       title: data[0].title ? data[0].title : "",
       description: data[0].description ? data[0].description : ""
     },
