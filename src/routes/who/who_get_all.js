@@ -1,7 +1,7 @@
-import { who } from "../../models";
+import { Who } from "../../models";
 
 export default {
   method: "GET",
   path: "/who",
-  handler: (request, reply) => who.getAll()
+  handler: (request, reply) => Who.getAll()
 };

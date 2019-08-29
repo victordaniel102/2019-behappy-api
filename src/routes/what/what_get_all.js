@@ -1,7 +1,7 @@
-import { what } from "../../models";
+import { What } from "../../models";
 
 export default {
   method: "GET",
   path: "/what",
-  handler: (request, reply) => what.getAll()
+  handler: (request, reply) => What.getAll()
 };
