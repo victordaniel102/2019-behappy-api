@@ -6,18 +6,18 @@ const response_builder = data => {
     response = {
       status: "200",
       data: {
-        id: data[0].id ? data[0].id : 0,
+        oid: data[0].oid ? data[0].oid : 0,
         title: data[0].title ? data[0].title : "",
         description: data[0].description ? data[0].description : ""
       },
       links: [
         {
-          rel: `/linkrels/tasks/${data[0].id}/done`,
-          uri: `/tasks/${data[0].id}/done`
+          rel: `/linkrels/tasks/${data[0].oid}/done`,
+          uri: `/tasks/${data[0].oid}/done`
         },
         {
-          rel: `/linkrels/tasks/${data[0].id}/delete`,
-          uri: `/tasks/${data[0].id}/delete`
+          rel: `/linkrels/tasks/${data[0].oid}/delete`,
+          uri: `/tasks/${data[0].oid}/delete`
         }
       ]
     };
@@ -34,6 +34,9 @@ const response_code_builder = data => (data.length > 0 ? 200 : 406);
 export default {
   method: "POST",
   path: "/tasks/{task_id}/undone",
+  options: {
+    auth: "token"
+  },
   handler: (request, reply) => {
     return Task.undone(request.params.task_id).then(data =>
       reply.response(response_builder(data)).code(response_code_builder(data))

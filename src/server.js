@@ -20,11 +20,13 @@ const basic_validate = async (request, username, password) => {
 };
 
 const token_validate = async (user, request) => {
-  token = tokens.findByUser(user);
+  const token = Token.findByUser(user);
   if (token == undefined) {
     return { credentials: null, isValid: false };
   } else {
-    const credentials = { id: user.id, name: user.name, token: token };
+    const credentials = { id: user.oid, name: user.name, token: token };
+    // bug fixed
+    //    const credentials = { id: user.id, name: user.name, token: token };
     return { credentials, isValid: true };
   }
 };
