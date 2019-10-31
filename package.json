@@ -4,13 +4,12 @@
   "description": "API do App Lista de tarefas",
   "main": "bootstrap.js",
   "engines": {
-    "node": "10.11.0"
+    "node": "12"
   },
   "scripts": {
     "dev-start": "nodemon bootstrap",
     "start": "node bootstrap",
     "postinstall": "knex migrate:latest && knex seed:run",
-    "db-migrate-all": "knex migrate:latest",
     "db-migrate": "knex migrate:up",
     "db-migrate-make": "knex migrate:make",
     "db-migrate-down": "knex migrate:down",
@@ -24,27 +23,27 @@
     "tarefas",
     "hapi"
   ],
-  "author": "L A MINORA",
+  "author": "Daniel Victor",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.6.2",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-async-to-generator": "^7.5.0",
-    "@babel/polyfill": "^7.6.0",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/register": "^7.6.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.6.0",
     "@hapi/basic": "^5.1.1",
     "@hapi/hapi": "^18.3.1",
     "@hapi/joi": "^15.1.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "babel-preset-env": "^1.7.0",
     "bcrypt": "^3.0.6",
     "hapi-auth-jwt2": "^8.6.2",
+    "hapi-cors": "^1.0.3",
     "hapi-router": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.19.4",
-    "nodemon": "^1.19.2",
+    "knex": "^0.19.1",
     "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
