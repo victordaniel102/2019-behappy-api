@@ -48,7 +48,8 @@ const init = async () => {
     {
       plugin: require("hapi-cors"),
       options: {
-        origins: ["*"]
+        origins: ["*"],
+        methods: ['POST, GET, DELETE'],
       }
     }
   ]);

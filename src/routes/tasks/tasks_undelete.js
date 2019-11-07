@@ -1,7 +1,6 @@
 import { Task } from "../../models";
 
 const response_message_builder = (result, task_id) => {
-  console.log(result);
   if (result.length == undefined || result.length == 0) {
     return {
       status: "400",
